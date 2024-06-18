@@ -1,9 +1,11 @@
 import React from 'react';
+import SearchBar from '../components/SearchBar';
+import RankingListItem from '../components/RankingListItem';
 
 const RankingPage = () => {
     return (
         <div>
-            <div className="row py-4 align-items-center border border-bottom-2">
+            <div className="row py-4 align-items-center border border-bottom border-end-0 border-start-0 border-top-0">
                 <div className="col-6">
                     <div className="row">
                         <div className="col-6 d-flex justify-content-center align-items-center">
@@ -20,9 +22,12 @@ const RankingPage = () => {
                     <h4>124 pts</h4>
                 </div>
             </div>
-            <div className="row">
+            <div className="row pt-4">
                 <div className="col-6">
-                    <h1>hola</h1>
+                    <SearchBar/>
+                    <RankingListItem/>
+                    <RankingListItem/>
+                    <RankingListItem/>
                 </div>
                 <div className="col-6">
                 </div>
