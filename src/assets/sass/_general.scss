@@ -1,0 +1,465 @@
+body {
+	// El footer siempre pegado abajo
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow-x: clip;
+	// FIN El footer siempre pegado abajo
+
+	@include media-breakpoint-up(md) {}
+
+	// Para eliminar del front el mensaje de que estamos en un sitio de desarrollo generado por WPML
+	.otgs-development-site-front-end {
+		display: none;
+	}
+}
+
+main {
+	overflow: clip; // funciona como un hidden pero puedes añadir sticky en los hijos
+}
+
+footer {
+	// El footer siempre pegado abajo
+	margin-top: auto;
+	// FIN El footer siempre pegado abajo
+}
+
+/* Navbar */
+.nav-logo {
+	height: 20px;
+}
+
+/*Footer*/
+.h1-jumbo {
+	font-size: 3.3rem;
+}
+
+
+/* Typography - MATRICE */
+
+.weight-black {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 900;
+}
+
+.weight-extra-bold {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 800;
+}
+
+.weight-bold {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 700;
+}
+
+.weight-semi-bold {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 600;
+}
+
+.weight-regular {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 500;
+}
+
+.weight-semi-light {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 400;
+}
+
+.weight-light {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 300;
+}
+
+.weight-extra-light {
+	font-family: 'Matrice', sans-serif;
+	font-weight: 200;
+}
+
+/*Card hover*/
+.image-hover-wrapper {
+	position: relative;
+	display: inline-block;
+
+	.aspect-projects {
+		width: 100%;
+		border-radius: 0.5rem;
+		transition: opacity 0.5s ease;
+	}
+
+	.hover-text {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		transition: opacity 0.5s ease;
+		background-color: rgba(0, 0, 0, 0.5);
+		color: white;
+		visibility: hidden;
+		border-radius: 0.5rem;
+	}
+
+	&:hover {
+		.aspect-projects {
+			opacity: 0.7;
+		}
+
+		.hover-text {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+/*Navbar*/
+.navbar-visible {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/*Alert Dialog*/
+
+/* reset */
+button {
+	all: unset;
+}
+
+.AlertDialogOverlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	inset: 0;
+	animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+	z-index: 10000;
+}
+
+.AlertDialogContent {
+	border-radius: 6px;
+	box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 90vw;
+	max-width: 700px;
+	max-height: 85vh;
+	padding: 25px;
+	animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+	z-index: 10000;
+}
+
+.AlertDialogContent:focus {
+	outline: none;
+}
+
+.Button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	padding: 0 15px;
+	font-size: 15px;
+	line-height: 1;
+	font-weight: 500;
+	height: 35px;
+}
+
+@keyframes overlayShow {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes contentShow {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -48%) scale(0.96);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.dashboard-menu {
+	flex-direction: column;
+	justify-content: space-between;
+	position: fixed;
+	height: 100vh;
+	padding: 20px 50px;
+}
+
+/*FOOTER ANIMATION*/
+.underline-animation {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.underline-animation::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 8px;
+	bottom: 12px;
+	left: 4px;
+	background-color: var(--bs-primary);
+	transform: scaleX(0);
+	transform-origin: bottom left;
+	transition: transform 0.5s ease-in-out;
+}
+
+.underline-animation:hover::after {
+	transform: scaleX(1);
+}
+
+#file-signup-input {
+	position: relative;
+	align-items: center;
+	justify-content: center;
+}
+
+#file-signup-input:after {
+	content: "Upload your image";
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	width: 251px;
+	height: 73px;
+	position: absolute;
+	background-color: $cor-black;
+	color: $cor-cream;
+	font-family: 'Matrice', sans-serif;
+	font-weight: 600;
+	top: 0;
+	border-top-left-radius: 19px;
+	border-bottom-left-radius: 19px;
+	pointer-events: none;
+	left: 0px;
+}
+
+/*USER PROFILE IMAGE*/
+.user-image-container {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	border-radius: 50%;
+	overflow: hidden;
+
+	img.user-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+	&::after {
+		content: "EDIT";
+		position: absolute;
+		font-family: 'Matrice', sans-serif;
+		font-weight: 600;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5); // Fondo semitransparente para el texto
+		color: $cor-cream;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0; // Inicialmente invisible
+		transition: opacity 0.3s ease;
+		border-radius: 50%; // Asegura que el overlay también tenga bordes redondeados
+	}
+
+	&:hover::after {
+		opacity: 1; // Hace visible el texto al pasar el mouse
+	}
+}
+
+
+.img-container {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+
+	.user-img {
+		position: relative;
+		margin-left: -15px;
+		border: 2px solid $cor-beige;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		object-fit: cover;
+
+		&:nth-child(n) {
+			z-index: calc(100 - n);
+		}
+	}
+}
+
+.tooltip {
+	font-size: 0.875rem;
+
+	.tooltip-inner {
+		background-color: #555;
+		color: #fff;
+	}
+
+	.arrow::before {
+		border-top-color: #555;
+	}
+}
+
+
+
+
+
+
+/* YourCustomScrollToBottomStyles.css */
+
+.react-scroll-to-bottom--css-ygucu-1tj0vk3 {
+	background-color: #007bff !important;
+	color: white;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	transition: background-color 0.3s;
+}
+
+.react-scroll-to-bottom--css-ygucu-1tj0vk3:hover {
+	background-color: #0056b3;
+	/* Darker blue */
+}
+
+/* Optional: Adjust the position of the button if needed */
+.rstb .rstb-button {
+	bottom: 20px;
+	right: 20px;
+	position: absolute;
+}
+
+/* Estilos para el tema oscuro */
+body.dark {
+	background-color: var(--bs-black) !important;
+	color: var(--bs-cream);
+.navbar{
+	background-color:var(--bs-black) !important ;
+}
+.tabbar{
+	background-color: var(--bs-black)!important;
+}
+.cancel-btn{
+background-color: var(--bs-secondary)!important;
+}
+	.list-unstyled {
+		.nav-item {
+			button {
+				color: var(--bs-cream) !important;
+
+			}
+		}
+
+		.nav-link {
+			.nav-item {
+				color: var(--bs-cream) !important;
+
+				&:hover {
+					color: var(--bs-primary);
+				}
+			}
+		}
+	}
+
+	.AlertDialogContent {
+		color: var(--bs-black)
+	}
+
+	.btn {
+		color: var(--bs-cream);
+
+		&-cream {
+			color: var(--bs-black);
+		}
+
+		&-outline-black {
+			color: var(--bs-black);
+
+			&:hover {
+				color: var(--bs-cream);
+			}
+		}
+
+		&-outline-primary {
+			background-color: var(--bs-black);
+			border-color: transparent;
+			color: var(--bs-cream);
+
+			&:hover {
+				background-color: var(--bs-primary);
+				color: var(--bs-cream);
+			}
+		}
+	}
+
+	.task-bar {
+		color: var(--bs-black);
+	}
+
+	.chat-container {
+		color: var(--bs-black);
+	}
+
+	.user-chatlist {
+		color: var(--bs-black)
+	}
+
+	.nav-logo {
+		.logo-color {
+			fill: var(--bs-cream)
+		}
+	}
+}
+
+.nav-logo {
+	.logo-color {
+		fill: var(--bs-black)
+	}
+}
+
+.unread-dot {
+	height: 8px;
+	width: 8px;
+	background-color: red;
+	border-radius: 50%;
+	display: inline-block;
+	/* Adjust positioning as needed */
+	position: absolute;
+	top: 25px;
+	right: 115px;
+}

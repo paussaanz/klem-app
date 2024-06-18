@@ -1,0 +1,12 @@
+.nav-link {
+	&.selected {
+		.nav-item-icon {
+			color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity));
+		}
+
+		.nav-item-text {
+			color: var(--bs-primary);
+		}
+	}
+
+}
