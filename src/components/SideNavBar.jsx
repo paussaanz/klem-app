@@ -11,7 +11,7 @@ const navBarItems = [
 
 const SideNavBar = () => {
   return (
-    <div className="sidebar fixed-top bg-light border-right vh-100 d-flex flex-column">
+    <div className="sidebar fixed-top bg-light border-end shadow vh-100 d-flex flex-column">
       <div className="sidebar-header p-3">
         <img src="../src/assets/dist/img/klem-logo.png" alt="Logo" />
       </div>
