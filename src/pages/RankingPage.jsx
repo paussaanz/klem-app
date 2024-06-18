@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
 import RankingListItem from '../components/RankingListItem';
+import GameTable from '../components/GameTable';
 
 const RankingPage = () => {
     return (
@@ -24,12 +25,16 @@ const RankingPage = () => {
             </div>
             <div className="row pt-4">
                 <div className="col-6">
-                    <SearchBar/>
-                    <RankingListItem/>
-                    <RankingListItem/>
-                    <RankingListItem/>
+                    <SearchBar />
+                    <RankingListItem />
+                    <RankingListItem />
+                    <RankingListItem />
                 </div>
                 <div className="col-6">
+                    <h3 className="text-center text-primary">Está pasando...</h3>
+                    
+                        <GameTable />
+                    
                 </div>
             </div>
         </div>
