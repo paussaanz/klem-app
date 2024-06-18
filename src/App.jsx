@@ -10,7 +10,7 @@ import ProfilePage from "./pages/ProfilePage";
 function App() {
   return (
     <>
-      <div className="container-fluid p-0">
+      <div className="container-fluid px-2 py-0">
         <div className="row">
           <header className="col-2">
             <SideNavBar />
