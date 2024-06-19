@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchBar = () => {
     return (
-        <div>
+        <>
             <form className="form-inline pb-3">
                 <div className="input-group w-100">
                     <input type="search" className="form-control" placeholder="Buscar" aria-label="Buscar" />
@@ -11,7 +11,7 @@ const SearchBar = () => {
                     </div>
                 </div>
             </form>
-        </div>
+        </>
     );
 };
 
