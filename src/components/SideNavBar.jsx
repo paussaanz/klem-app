@@ -11,20 +11,20 @@ const navBarItems = [
 
 const SideNavBar = () => {
   return (
-    <div className="sidebar fixed-top bg-light border-end shadow vh-100 d-flex flex-column">
+    <div className="sidebar fixed-top border-end shadow vh-100 d-flex flex-column">
       <div className="sidebar-header p-3">
         <img src="../src/assets/dist/img/klem-logo.png" alt="Logo" />
       </div>
       <ul className="list-unstyled flex-grow-1 p-3">
-        {navBarItems.map((item, index) => (
-          <li 
-            key={item.text}
-            className="nav-item py-2 d-flex align-items-center btn-link text-black text-decoration-none"
-            onClick={() => setActiveTab(index)}
-          >
+        {navBarItems.map((item) => (
+          <li key={item.text} className="nav-item pb-2">
             <NavLink 
               to={item.to} 
-              className={({ isActive }) => "nav-link" + (isActive ? " selected" : "")}
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link active d-flex align-items-center justify-content-start px-3 py-2 bg-primary text-white w-100 rounded"
+                  : "nav-link d-flex align-items-center justify-content-start px-3 py-2 text-dark w-100"
+              }
             >
               <div className="me-2" style={{ verticalAlign: 'text-bottom' }}>
                 {item.icon}
