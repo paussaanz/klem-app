@@ -1,12 +1,15 @@
-.nav-link {
-	&.selected {
-		.nav-item-icon {
-			color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity));
-		}
-
-		.nav-item-text {
-			color: var(--bs-primary);
-		}
-	}
-
-}
+.sidebar {
+    width: 250px;
+  
+    .sidebar-header {
+      padding: 20px;
+      color: #fff;
+  
+      img {
+        width: 100px; // Ajusta el ancho según sea necesario
+        height: auto; // Mantiene la proporción
+      }
+    }
+  
+  }
+  
