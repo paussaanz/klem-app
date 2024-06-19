@@ -5,12 +5,14 @@ import FormDetailPage from "./pages/FormDetailPage";
 import RankingPage from "./pages/RankingPage";
 import TalentoPage from "./pages/TalentoPage";
 import ProfilePage from "./pages/ProfilePage";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
 
 
 function App() {
   return (
     <>
-      <div className="container-fluid px-2 py-0">
+      <div className="container-fluid px-2 py-0 ">
         <div className="row">
           <header className="col-2">
             <SideNavBar />
@@ -22,6 +24,8 @@ function App() {
                 <Route path="/ranking" element={<RankingPage />} />
                 <Route path="/talento" element={<TalentoPage />} />
                 <Route path="/perfil" element={<ProfilePage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/login" element={<LoginPage />} />
               </Routes>
           </main>
         </div>
