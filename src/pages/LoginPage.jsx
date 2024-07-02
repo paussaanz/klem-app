@@ -1,10 +1,14 @@
-// Login.js
-import React from 'react';
+import { useContext } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Input from '../components/Forms/Input'; 
+import AuthContext from "../context/AuthContext";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   return (
     <div className="container mt-5">
       <h2>Login</h2>
@@ -19,11 +23,17 @@ const Login = () => {
             .required('Required'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          // Lógica para manejar el envío del formulario
-          console.log(values);
-          setSubmitting(false);
+          login(values)
+          .then(() => {
+            navigate('/')
+          })
+          .catch((err) => {
+            console.log(err)
+            setSubmitting(false)
+        })
         }}
       >
+        {({ setFieldValue, isSubmitting, errors }) => (
         <Form>
           <Input 
             label="Email" 
@@ -37,8 +47,12 @@ const Login = () => {
             type="password" 
             placeholder="Password" 
           />
-          <button type="submit" className="btn btn-primary">Login</button>
+          {errors.submit && <div className="alert alert-danger">{errors.submit}</div>}
+                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                  {isSubmitting ? 'Logging In...' : 'Login'}
+                </button>
         </Form>
+        )}
       </Formik>
     </div>
   );

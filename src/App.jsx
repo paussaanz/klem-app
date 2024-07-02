@@ -7,6 +7,7 @@ import TalentoPage from "./pages/TalentoPage";
 import ProfilePage from "./pages/ProfilePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import CreatePostPage from "./pages/CreatePostPage";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/perfil" element={<ProfilePage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/create-post" element={<CreatePostPage />} />
               </Routes>
           </main>
         </div>

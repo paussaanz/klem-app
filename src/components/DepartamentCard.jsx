@@ -1,44 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TalentoCard from './TalentoCard';
+import { getUsers } from '../services/UserService';
 
-const DepartamentCard = ({DepartamentName}) => {
+const DepartamentCard = ({ DepartamentName }) => {
+    const [dbUsers, setDBUsers] = useState([]);
+    useEffect(() => {
+        getUsers()
+            .then(users => {
+                setDBUsers(users)
+            })
+
+    }, []);
+
     return (
         <>
-            <div className="container"> 
+            <div className="container">
                 <div className="row">
                     <h3 className="legend">{DepartamentName}</h3>
                 </div>
                 <div className="row">
-                    <div className="col-2">
-                        <TalentoCard
-                         imageUrl="https://via.placeholder.com/100"
-                         talentName="Nombre del Talento 1"
-                         />
-                    </div>
-                    <div className="col-2">
-                        <TalentoCard
-                         imageUrl="https://via.placeholder.com/100"
-                         talentName="Nombre del Talento 1"
-                         />
-                    </div>
-                    <div className="col-2">
-                        <TalentoCard
-                         imageUrl="https://via.placeholder.com/100"
-                         talentName="Nombre del Talento 1"
-                         />
-                    </div>
-                    <div className="col-2">
-                        <TalentoCard
-                         imageUrl="https://via.placeholder.com/100"
-                         talentName="Nombre del Talento 1"
-                         />
-                    </div>
-                    <div className="col-2">
-                        <TalentoCard
-                         imageUrl="https://via.placeholder.com/100"
-                         talentName="Nombre del Talento 1"
-                         />
-                    </div>
+                    {dbUsers.map((dbUser) => (
+                        <div className="col-2" key={dbUser.id}>
+                            <TalentoCard
+                                imageUrl={dbUser.profileImage}
+                                talentName={dbUser.firstName + ' ' + dbUser.lastName}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </>
